@@ -1,0 +1,6 @@
+Expected local MySQL demo output:
+Unsafe accepts crafted input: true
+PreparedStatement accepts crafted input: false
+Safe valid login: true
+
+The demo intentionally uses a disposable table and plaintext test password only to make the SQL injection comparison visible. Never use plaintext password storage in production.
