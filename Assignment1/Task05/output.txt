@@ -1,0 +1,21 @@
+$ javac Task05.java
+$ java Task05
+=== TASK 5: static members & life cycle ===
+static block ran once when class loaded
+Ticket numbers: 1001, 1002, 1003  issued=3
+
+-- Instance counter with two facilities (the problem) --
+north: 1001  south: 1001   <-- SAME number 1001 issued twice!
+-- Fix A: static counter --
+north: 1001  south: 1002   unique globally
+-- Fix B: instance counter + gate prefix --
+north: N-1  south: S-1   unique, independent per gate
+Space: static counter = 1 int total (O(1)); instance counter = k ints for k facilities (O(k)); tickets themselves O(n).
+
+-- Passing / returning objects --
+after occupy(s): taken=true   (method changed the caller's object)
+after reassign(s): taken=true   (reassigning the parameter does not change caller's reference)
+
+-- Garbage collection --
+before leaving: ticket reachable = true
+after reference set to null + gc: ticket collected = true
