@@ -1,0 +1,38 @@
+=== Q7 Original vs Redesign under identical test conditions (5 timed runs after 2 warm-ups, averaged) ===
+
+Workload B: 10,000 tickets x 50 fields   (ticket length 649 chars; outputs identical across versions: true)
+  version                total ms      us/ticket alloc KB/ticket  String objs    chars copied/ticket
+  original (+)              29.50          2.950           18.92          ~52                  16265
+  plain StringBuilder       13.07          1.307            3.08     1 (+PNR) <= ~1947 (append+growth+toString)
+  redesign (reuse)           9.07          0.907            0.72     1 (+PNR) ~1298 (append+toString)
+  speed-up: baseline vs original = 2.3x, redesign vs original = 3.3x, redesign vs baseline = 1.44x
+
+Workload C: 1 ticket x 20,000 fields   (ticket length 306707 chars; outputs identical across versions: true)
+  version                total ms      us/ticket alloc KB/ticket  String objs    chars copied/ticket
+  original (+)             438.41     438412.178      2937234.83       ~20002             3006551595
+  plain StringBuilder        0.46        456.633         1451.84     1 (+PNR) <= ~920121 (append+growth+toString)
+  redesign (reuse)           0.36        364.743          299.59     1 (+PNR) ~613414 (append+toString)
+  speed-up: baseline vs original = 960.1x, redesign vs original = 1202.0x, redesign vs baseline = 1.25x
+
+Workload D: 100,000 tickets x 10 fields   (ticket length 135 chars; outputs identical across versions: true)
+  version                total ms      us/ticket alloc KB/ticket  String objs    chars copied/ticket
+  original (+)              26.96          0.270            1.45          ~12                    710
+  plain StringBuilder       20.52          0.205            0.55     1 (+PNR) <= ~405 (append+growth+toString)
+  redesign (reuse)          17.19          0.172            0.20     1 (+PNR) ~270 (append+toString)
+  speed-up: baseline vs original = 1.3x, redesign vs original = 1.6x, redesign vs baseline = 1.19x
+
+Workload E (scaling): 1 ticket x 5,000 fields   (ticket length 73357 chars; outputs identical across versions: true)
+  version                total ms      us/ticket alloc KB/ticket  String objs    chars copied/ticket
+  original (+)              35.36      35355.437       177178.77        ~5002              181140020
+  plain StringBuilder        0.12        121.374          215.91     1 (+PNR) <= ~220071 (append+growth+toString)
+  redesign (reuse)           0.09         94.588           71.70     1 (+PNR) ~146714 (append+toString)
+  speed-up: baseline vs original = 291.3x, redesign vs original = 373.8x, redesign vs baseline = 1.28x
+
+Workload F (scaling): 1 ticket x 10,000 fields   (ticket length 147807 chars; outputs identical across versions: true)
+  version                total ms      us/ticket alloc KB/ticket  String objs    chars copied/ticket
+  original (+)             119.26     119261.977       717391.21       ~10002              734025545
+  plain StringBuilder        0.24        244.462          720.65     1 (+PNR) <= ~443421 (append+growth+toString)
+  redesign (reuse)           0.17        168.853          144.41     1 (+PNR) ~295614 (append+toString)
+  speed-up: baseline vs original = 487.9x, redesign vs original = 706.3x, redesign vs baseline = 1.45x
+
+Concurrency check: 4 threads x 5000 tickets, one formatter per thread (no locks): all checksums equal single-thread result = true
