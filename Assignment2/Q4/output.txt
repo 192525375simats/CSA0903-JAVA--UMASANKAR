@@ -1,0 +1,27 @@
+n         structure      put all ms   100k gets ms       ns/get  code-order rpt ms insert-order rpt ms order check
+1000      HashMap              0.18           2.31         23.1               0.73               0.01 iteration order natural? code=false insertion=false | reports correct: true
+1000      TreeMap              0.34          19.88        198.8               0.08               0.01 iteration order natural? code=true insertion=false | reports correct: true
+1000      LinkedHashMap        0.20           2.50         25.0               0.42               0.02 iteration order natural? code=false insertion=true | reports correct: true
+1000      Hashtable            0.16           2.75         27.5               0.35               0.01 iteration order natural? code=false insertion=false | reports correct: true
+1000      sorted array         0.73          16.14        161.4 0 (already sorted)    needs side list insert = O(n) shift each
+10000     HashMap              1.50           6.21         62.1               3.35               0.07 iteration order natural? code=false insertion=false | reports correct: true
+10000     TreeMap              3.43          27.22        272.2               0.53               0.08 iteration order natural? code=true insertion=false | reports correct: true
+10000     LinkedHashMap        1.19           2.08         20.8               4.08               0.23 iteration order natural? code=false insertion=true | reports correct: true
+10000     Hashtable            1.24           3.74         37.4               3.05               0.07 iteration order natural? code=false insertion=false | reports correct: true
+10000     sorted array         5.46          22.17        221.7 0 (already sorted)    needs side list insert = O(n) shift each
+100000    HashMap             15.90           3.93         39.3              34.10               0.33 iteration order natural? code=false insertion=false | reports correct: true
+100000    TreeMap             57.10          54.51        545.1               8.19               0.35 iteration order natural? code=true insertion=false | reports correct: true
+100000    LinkedHashMap       12.30           4.58         45.8              38.37               1.26 iteration order natural? code=false insertion=true | reports correct: true
+100000    Hashtable            9.99           6.02         60.2              22.57               0.37 iteration order natural? code=false insertion=false | reports correct: true
+100000    sorted array       455.26          52.41        524.1 0 (already sorted)    needs side list insert = O(n) shift each
+500000    HashMap             99.98          10.22        102.2             192.95               4.81 iteration order natural? code=false insertion=false | reports correct: true
+500000    TreeMap            642.36         118.43       1184.3              48.66               5.18 iteration order natural? code=true insertion=false | reports correct: true
+500000    LinkedHashMap       78.90           9.46         94.6             313.36               9.69 iteration order natural? code=false insertion=true | reports correct: true
+500000    Hashtable           69.56          12.09        120.9             196.23               5.95 iteration order natural? code=false insertion=false | reports correct: true
+500000    sorted array      skipped          92.13        921.3 0 (already sorted)    needs side list insert = O(n) shift each
+
+Approximate heap per entry (200,000 entries, after GC):
+  HashMap        ~ 71 bytes/entry (includes shared key + value objects)
+  TreeMap        ~ 64 bytes/entry (includes shared key + value objects)
+  LinkedHashMap  ~ 84 bytes/entry (includes shared key + value objects)
+  array of values ~ 25 bytes/entry (value objects only; keys shared)
