@@ -1,0 +1,23 @@
+$ javac -d out src/parking/model/*.java src/parking/service/*.java src/parking/app/*.java
+$ java -cp out parking.app.Task10
+=== TASK 10: Packages & encapsulation ===
+Packages: parking.model (Booking), parking.service (BookingService), parking.app (Task10)
+Valid booking fee(130 min) = Rs 90.0
+
+Validating setters:
+  rejected: Duration cannot be negative: -5
+  rejected: Invalid slot number: 500
+  rejected: Invalid registration number: bad
+  state unchanged after rejections: duration=130 slot=7 reg=TN01AB1111
+
+Wrapper classes and autoboxing:
+  Integer 127 == 127   : true   (cached -128..127)
+  Integer 1000 == 1000 : false  <-- compares references, NOT values (risk!)
+  1000 equals 1000     : true   (always use equals / intValue)
+  unboxing null risk   : 
+    NullPointerException when auto-unboxing a missing map value
+
+-- Alternative: public fields --
+  invalid state accepted silently: ???, -999, 12345
+  every caller must repeat the same 3 checks: validation code duplicated in N places instead of 1.
+  20000000 updates (ms): validating setter=18 public field + caller check=25  [40000000]  both O(1) per update; the check cost is the same, only its location differs.
