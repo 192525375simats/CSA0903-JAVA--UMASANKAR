@@ -1,0 +1,24 @@
+$ javac Task06.java
+$ java Task06
+=== TASK 6: Inheritance ===
+Constructor trace for: new ElectricCar("TN03C3")
+  1. Vehicle constructor  (regNo=TN03C3)
+  2. Car constructor
+  3. ElectricCar constructor (adds chargeRate=12.0)
+describe() -> Electric Car TN03C3
+fee(130 min) -> 90.0
+ev is Car? true  ev is Vehicle? true
+
+What is inherited: regNo (via getter), calculateFee(); what is added: chargeRatePerKwh, describe() override.
+
+-- Alternative: composition --
+BIKE TN01A1 fee(130)=30.0
+CAR TN02B2 fee(130)=90.0
+EBIKE TN05E5 fee(130)=24.0
+New type with composition: just 'new VehicleType(...)' (data), ZERO new classes.
+New type with inheritance: write one new subclass (1 new class, nothing else changes).
+  1. Vehicle constructor  (regNo=TN02B2)
+  2. Car constructor
+
+10000000 fee calculations (ms): inheritance=22 composition=19 (both O(1)) [1.8E9]
+Space per object: inheritance = regNo ref; composition = regNo ref + type ref (one extra reference, shared VehicleType objects).
