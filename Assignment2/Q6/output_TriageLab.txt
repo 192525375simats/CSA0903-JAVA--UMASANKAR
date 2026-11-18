@@ -1,0 +1,26 @@
+=== Correctness (8 patients, hand-worked) ===
+PriorityQueue printed directly (heap layout, NOT treatment order): [Meena(S1), Kumar(S1), Lata(S2), Imran(S1), Ravi(S3), John(S3), Divya(S2), Asha(S5)]
+hand-worked expected : Meena(S1) Kumar(S1) Imran(S1) Lata(S2) Divya(S2) Ravi(S3) John(S3) Asha(S5)
+poll() order observed: Meena(S1) Kumar(S1) Imran(S1) Lata(S2) Divya(S2) Ravi(S3) John(S3) Asha(S5)
+match: true
+
+=== Growth: cost of admit and next (poll) per patient, random severities ===
+n             admit ns/op     next ns/op        log2(n)
+1000                120.9          277.3           10.0
+10000                96.0          306.5           13.3
+100000               48.1          266.4           16.6
+1000000              51.5          449.9           19.9
+
+=== Starvation: backlog of 40 severity-1/2 patients + 1 severity-5 patient at t=0; then 1 new severity-1/2 patient per minute, doctor treats 1 per minute, 20,000 min ===
+policy                         severity-5 patient                     avg wait sev-1     avg wait sev-2
+strict severity (no aging)     NEVER SERVED in 20,000 min                     0.1 min            80.8 min
+aging W=30 min per level       served after 149 min                          26.1 min            56.1 min
+
+=== Deployment: one day = 5,000 patients (admit all, then treat all) ===
+best of 30 runs: 1.383 ms for 5,000 admits + 5,000 treatments (a day is 86,400,000 ms)
+
+=== Alternatives: admit n patients, then serve all (ms total) ===
+n           PriorityQueue      sorted LinkedList   5 FIFO ArrayDeques
+1000                 0.24                   9.44                 1.03
+10000                2.45                 171.38                 1.53
+40000               12.18                9421.41                 1.88
