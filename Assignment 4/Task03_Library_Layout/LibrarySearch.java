@@ -1,0 +1,43 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class LibrarySearch extends JFrame {
+    private final JTextField query = new JTextField(22);
+    private final JComboBox<String> category = new JComboBox<>(new String[]{"All","Book","Journal","Thesis"});
+    private final DefaultListModel<String> results = new DefaultListModel<>();
+    private final JLabel status = new JLabel("Ready");
+    public LibrarySearch() {
+        super("Campus Library Search");
+        setLayout(new BorderLayout(8,8));
+        JLabel title = new JLabel("Campus Library",SwingConstants.CENTER);
+        title.setFont(title.getFont().deriveFont(Font.BOLD,20f));
+        add(title,BorderLayout.NORTH);
+        JPanel searchRow = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        searchRow.add(new JLabel("Search:")); searchRow.add(query);
+        searchRow.add(category);
+        JButton search = new JButton("Search"); searchRow.add(search);
+        add(searchRow,BorderLayout.PAGE_START);
+        JList<String> list = new JList<>(results);
+        list.setVisibleRowCount(8);
+        add(new JScrollPane(list),BorderLayout.CENTER);
+        JPanel footer = new JPanel(new BorderLayout());
+        JPanel buttons = new JPanel(new FlowLayout());
+        JButton prev=new JButton("Prev"), next=new JButton("Next"), reserve=new JButton("Reserve");
+        buttons.add(prev); buttons.add(next); buttons.add(reserve);
+        footer.add(buttons,BorderLayout.CENTER); footer.add(status,BorderLayout.SOUTH);
+        add(footer,BorderLayout.SOUTH);
+        search.addActionListener(e -> {
+            results.clear();
+            String term=query.getText().trim();
+            if(term.isEmpty()){status.setText("Enter a search term.");return;}
+            results.addElement("Example result: "+term+" — "+category.getSelectedItem());
+            results.addElement("Designing with Java Swing — Book");
+            status.setText("2 sample results");
+        });
+        reserve.addActionListener(e -> status.setText(list.getSelectedValue()==null?"Select a result first.":"Reservation requested."));
+        prev.addActionListener(e -> status.setText("Previous page"));
+        next.addActionListener(e -> status.setText("Next page"));
+        setMinimumSize(new Dimension(520,360)); setSize(760,520); setLocationRelativeTo(null);
+    }
+    public static void main(String[] args){SwingUtilities.invokeLater(()->new LibrarySearch().setVisible(true));}
+}
