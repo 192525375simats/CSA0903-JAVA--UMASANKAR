@@ -1,0 +1,14 @@
+Sample input passes.csv contains 3 valid records and 2 damaged records.
+Expected after configuring MySQL and running PassMigration:
+Valid rows loaded: 3
+Rejected rows: 2
+REJECTED line 4: expected five fields | DAMAGED,ROW
+REJECTED line 5: For input string: "abc" | P1004,192311004,Meena,abc,3000.00
+Database: MySQL ...
+Driver: MySQL Connector/J ...
+Tables:
+ - bus_pass
+ - student
+ - users
+ - wallet
+Actual database product/driver versions and table names depend on the local database; capture your real execution output.
