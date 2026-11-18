@@ -1,0 +1,36 @@
+
+=== Playlist size n = 1000   (ns per operation, median of 3 trials) ===
+operation                 ArrayList     LinkedList     ArrayDeque    plain array
+add at end                    126.1          107.2          118.6           59.2
+insert at front               328.2          161.9           82.6         6661.4
+insert in middle              123.9         1334.9            n/a         1273.9
+remove at front               274.4          130.5          123.8         3502.6
+remove in middle               84.5          629.9            n/a          663.7
+get k-th (middle)              97.6          819.1            n/a           39.8
+iterate whole list             30.5          113.2           33.0           16.0
+
+=== Playlist size n = 10000   (ns per operation, median of 3 trials) ===
+operation                 ArrayList     LinkedList     ArrayDeque    plain array
+add at end                     20.2           22.4           16.5           11.4
+insert at front               453.6           24.9           14.0        22528.6
+insert in middle              271.7         8817.2            n/a        10551.9
+remove at front               316.8           20.6           13.3        16506.0
+remove in middle              179.1         7088.1            n/a         7772.0
+get k-th (middle)               4.8         7761.9            n/a            3.1
+iterate whole list              5.5           29.6            5.7           14.3
+
+=== Playlist size n = 100000   (ns per operation, median of 3 trials) ===
+operation                 ArrayList     LinkedList     ArrayDeque    plain array
+add at end                      9.4           14.5           10.4            9.2
+insert at front              7927.5           15.6           11.6       185383.4
+insert in middle             3917.0        82832.1            n/a        93606.8
+remove at front              7425.0            9.3            5.3       162538.4
+remove in middle             4205.7        79766.6            n/a       101087.1
+get k-th (middle)               2.6        80481.6            n/a            2.4
+iterate whole list              1.5            4.7            0.6            0.6
+
+=== Changed condition: 'Up Next' queue = repeat {addLast, addFirst, removeFirst} 30,000 times ===
+n               ArrayList     LinkedList     ArrayDeque    plain array   (total ms)
+1000                46.38           1.14           0.60        1729.52
+10000               80.98           1.14           0.61        2805.41
+100000             528.39           1.08           0.90       13141.69
