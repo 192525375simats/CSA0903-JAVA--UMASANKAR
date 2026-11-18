@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="465" viewBox="0 0 1000 465">
+<rect width="1000" height="465" rx="14" fill="#111827"/>
+<rect width="1000" height="42" rx="14" fill="#263244"/>
+<circle cx="24" cy="21" r="6" fill="#f87171"/><circle cx="46" cy="21" r="6" fill="#fbbf24"/><circle cx="68" cy="21" r="6" fill="#34d399"/>
+<text x="92" y="27" fill="#e5e7eb" font-family="Arial,sans-serif" font-size="15">Java program — console output</text>
+<text x="28" y="78" fill="#d1fae5" font-family="Consolas,monospace" font-size="17">TEST 1 - valid withdrawal</text>
+<text x="28" y="103" fill="#d1fae5" font-family="Consolas,monospace" font-size="17">Account 192525375: Dispensed Rs. 1000.00</text>
+<text x="28" y="128" fill="#d1fae5" font-family="Consolas,monospace" font-size="17">ATM session closed.</text>
+<text x="28" y="153" fill="#d1fae5" font-family="Consolas,monospace" font-size="17">TEST 2 - letters</text>
+<text x="28" y="178" fill="#d1fae5" font-family="Consolas,monospace" font-size="17">Input error: enter numeric account and amount</text>
+<text x="28" y="203" fill="#d1fae5" font-family="Consolas,monospace" font-size="17">ATM session closed.</text>
+<text x="28" y="228" fill="#d1fae5" font-family="Consolas,monospace" font-size="17">TEST 3 - negative amount</text>
+<text x="28" y="253" fill="#d1fae5" font-family="Consolas,monospace" font-size="17">Transaction rejected: Withdrawal must be positive</text>
+<text x="28" y="278" fill="#d1fae5" font-family="Consolas,monospace" font-size="17">ATM session closed.</text>
+<text x="28" y="303" fill="#d1fae5" font-family="Consolas,monospace" font-size="17">TEST 4 - over balance</text>
+<text x="28" y="328" fill="#d1fae5" font-family="Consolas,monospace" font-size="17">Transaction rejected: Insufficient balance</text>
+<text x="28" y="353" fill="#d1fae5" font-family="Consolas,monospace" font-size="17">ATM session closed.</text>
+<text x="28" y="378" fill="#d1fae5" font-family="Consolas,monospace" font-size="17">TEST 5 - missing card reader</text>
+<text x="28" y="403" fill="#d1fae5" font-family="Consolas,monospace" font-size="17">Device error: Card-reader file is missing</text>
+<text x="28" y="428" fill="#d1fae5" font-family="Consolas,monospace" font-size="17">ATM session closed.</text>
+</svg>
