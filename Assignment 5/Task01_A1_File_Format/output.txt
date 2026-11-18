@@ -1,0 +1,1 @@
+Part A1 is a design task. Evidence to capture: text record layout, binary field layout, ADD/FIND/LIST pseudocode and damaged-data recovery explanation.
