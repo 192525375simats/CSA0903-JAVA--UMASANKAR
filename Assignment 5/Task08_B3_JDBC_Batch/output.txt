@@ -1,0 +1,12 @@
+B3 output is environment-dependent. Run:
+javac PassLoader.java PassLoaderBenchmark.java
+java PassLoaderBenchmark
+Expected report structure:
+1000 rows | Statement ... ms | Prepared ... ms | Batch+transaction ... ms
+10000 rows | Statement ... ms | Prepared ... ms | Batch+transaction ... ms
+100000 rows | Statement ... ms | Prepared ... ms | Batch+transaction ... ms
+
+Rollback test:
+Invalid amount rejected: ...
+Rows remaining after rollback: 0
+Do not replace dots with invented timing values; paste actual timings from your own MySQL/JDK environment.
