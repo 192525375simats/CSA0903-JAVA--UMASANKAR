@@ -1,0 +1,27 @@
+$ javac Task02.java
+$ java Task02
+=== TASK 2: Data types, arrays and casting ===
+Read: reg=TN01AB1111 minutes=130 rate=30.0
+
+Casting risk (130 minutes at Rs 30/hour, every started hour charged):
+  feeWrong     = 60.0   <-- loses 10 minutes (customer undercharged)
+  feeWrongCast = 60.0   <-- cast after division does not help
+  feeRight     = 90.0   <-- ceiling with (m+59)/60
+  Boundary 60 min -> 30.0 (1 hour), 61 min -> 60.0 (2 hours), 0 min -> 0.0
+  Narrowing long->int: 3000000000 becomes -1294967296 (overflow, so never narrow money/time values)
+
+Jagged array: floors=5
+  floor 0 has 20 slots
+  floor 1 has 50 slots
+  floor 2 has 35 slots
+  floor 3 has 60 slots
+  floor 4 has 100 slots
+
+Alternative 1-D array (index = floor*100 + slot):
+  cells allocated = 500, cells really needed = 265 -> 235 wasted cells
+  locate slot: jagged = slots[f][s] O(1); flat = flat[f*W+s] O(1) (one multiply+add)
+
+Alternative ArrayList<String[]>: floors can be added at run time (list.add), jagged array cannot grow.
+  locate slot: list.get(f)[s] O(1); extra space: ArrayList object + backing Object[] (O(F)).
+
+Time for 20000000 slot look-ups (ms): jagged=37 flat=56 arraylist=39  (all O(1) each)  [chk=60000000]
