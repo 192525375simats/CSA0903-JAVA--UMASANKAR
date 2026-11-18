@@ -1,0 +1,6 @@
+Valid input test: INR 1000, target USD -> 12.00 USD and result dialog.
+Valid input test: INR 1000, target EUR -> 11.00 EUR and result dialog.
+Invalid input test: amount abc -> Invalid amount dialog.
+Negative input test: amount -5 -> Invalid amount dialog.
+Enter key and Convert button invoke the same conversion action.
+Rates are fixed assignment demonstration rates, not live exchange rates.
