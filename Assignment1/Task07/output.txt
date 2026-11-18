@@ -1,0 +1,25 @@
+$ javac Task07.java
+$ java Task07
+=== TASK 7: Overriding ===
+TwoWheeler(TN01A1) fee(130) = Rs 30.0
+Car(TN02B2) fee(130) = Rs 90.0
+ElectricCar(TN03C3) fee(130) = Rs 90.0
+
+-- equals / hashCode / toString --
+a.equals(b) (same regNo)      : true
+a.equals(c) (different regNo) : false
+a.hashCode()==b.hashCode()    : true
+HashSet contains new Car("TN02B2"): true   (works only because equals AND hashCode are overridden)
+toString: Car(TN02B2)
+
+-- final --
+final field regNo: assignment after construction is a compile error
+final method calculateFee(): subclasses cannot change the billing formula
+final class ElectricCar: cannot be extended further
+
+-- Alternative: switch on a type field --
+BIKE TN01A1 fee(130) = Rs 30.0
+CAR TN02B2 fee(130) = Rs 90.0
+EV TN03C3 fee(130) = Rs 90.0
+Adding a new type: overriding = ADD 1 class, change 0 existing; switch = EDIT calculateFee() (and every other method with a switch).
+20000000 fee calculations (ms): overriding=67 switch=68  override O(1); switch O(k) in worst case (String switch hashes, so close to O(1) here) [2.79999996E9]
