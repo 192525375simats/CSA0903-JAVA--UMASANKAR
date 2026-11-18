@@ -1,0 +1,26 @@
+=== Test 1: scans that appear to work (same object scanned twice) ===
+Broken class, same reference re-added -> size                  predicted=2      observed=2      MATCH
+
+=== Test 2: duplicates deliberately exposed (different objects, same regNo) ===
+Broken class, 3 scans of the same student -> size              predicted=3      observed=3      MATCH
+   equals() of two scans (the method itself is right)          predicted=true   observed=true   MATCH
+   same hashCode?                                              predicted=false  observed=false  MATCH
+Fixed class, 3 scans of the same student -> size               predicted=1      observed=1      MATCH
+
+=== Test 3a (own test): change a field used by hashCode() after insertion ===
+size after mutation                                            predicted=1      observed=1      MATCH
+contains(m) (same object!)                                     predicted=false  observed=false  MATCH
+contains(new Mutable("192311001")) (original key)              predicted=false  observed=false  MATCH
+remove(m)                                                      predicted=false  observed=false  MATCH
+size after failed remove (entry is lost/leaked)                predicted=1      observed=1      MATCH
+
+=== Test 3b (own test): TreeSet comparator inconsistent with equals ===
+HashSet size (equals by regNo)                                 predicted=2      observed=2      MATCH
+TreeSet(compare by name) size                                  predicted=1      observed=1      MATCH
+
+=== Alternative structures: cost per scan for n unique students (50% repeated scans) ===
+n unique    HashSet ns/scan  TreeSet ns/scan  HashMap ns/scan
+1000                  288.0            449.7            234.6   (distinct found: 885)
+10000                 116.5            374.4             79.1   (distinct found: 8637)
+100000                 80.0            670.4             74.5   (distinct found: 86429)
+500000                167.5           1206.5            106.4   (distinct found: 432596)
