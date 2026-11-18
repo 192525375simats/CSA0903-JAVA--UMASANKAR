@@ -15,7 +15,7 @@ class Resident implements Serializable {
  private static final long serialVersionUID=1L;
  String name,registerNo,phoneNumber;
  transient String password;
- transient Object liveConnection; // Replace with transient java.sql.Connection in JDBC application.
+ transient java.sql.Connection liveConnection;
  Resident(String n,String id,String phone,String pwd){name=n;registerNo=id;phoneNumber=phone;password=pwd;}
 }
 public class HostelSnapshot {
