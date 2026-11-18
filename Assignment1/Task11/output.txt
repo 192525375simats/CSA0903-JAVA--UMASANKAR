@@ -1,0 +1,30 @@
+$ javac Task11.java
+$ java Task11
+=== TASK 11: Test table ===
+Normal: bike gets slot                         expected=0-0        actual=0-0        PASS
+Normal: car gets next slot                     expected=0-1        actual=0-1        PASS
+Normal: bike 130 min (3 h x 10)                expected=30.0       actual=30.0       PASS
+Boundary: EV gets freed slot                   expected=0-0        actual=0-0        PASS
+Boundary: last free slot used                  expected=1-0        actual=1-0        PASS
+Boundary: full facility returns null           expected=null       actual=null       PASS
+Boundary: zero minutes -> Rs 0                 expected=0.0        actual=0.0        PASS
+Boundary: exactly 60 min car -> 1 h            expected=30.0       actual=30.0       PASS
+Boundary: 61 min car -> 2 h                    expected=60.0       actual=60.0       PASS
+Boundary: daily max (600 min car)              expected=150.0      actual=150.0      PASS
+Boundary: monthly pass free                    expected=0.0        actual=0.0        PASS
+Invalid: unknown type rejected                 expected=IAE        actual=IAE        PASS
+Invalid: duplicate regNo rejected              expected=ISE        actual=ISE        PASS
+Invalid: bad slot rejected                     expected=IAE        actual=IAE        PASS
+Invalid: already-free slot rejected            expected=ISE        actual=ISE        PASS
+
+=== Day scenario (fresh facility 2+1 slots) ===
+Hand calculation: 10 + 90 + (90 + 240) = 430.0
+Program output  : 430.0
+Day total matches hand calculation             expected=430.0      actual=430.0      PASS
+
+PASSED 16  FAILED 0
+
+=== Alternative storage: find ticket by regNo on exit ===
+n=100000 parked; find last vehicle: array=731 us, ArrayList=867 us, HashMap=17 ns
+(found: true)  Array/ArrayList O(n) time, O(n) space; HashMap O(1) average time, O(n) space
+with extra overhead per entry (Node object + table slot, roughly 2-3x the memory of the array).
