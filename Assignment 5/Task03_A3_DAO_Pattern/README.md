@@ -1,0 +1,2 @@
+# A3 – DAO Pattern
+Compile with Java 17+: javac StudentDao.java. For database execution, create schema.sql, provide MySQL Connector/J and configure DB_URL, DB_USER and DB_PASSWORD. StudentDao accepts an existing JDBC Connection.
