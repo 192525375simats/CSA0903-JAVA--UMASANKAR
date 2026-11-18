@@ -1,0 +1,1 @@
+Part A2 is a design and prediction task. Predicted read calls: approximately 52,428,800 single-byte read invocations for 50 MiB. Run the B1 benchmark for measured results.
