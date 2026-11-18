@@ -1,0 +1,2 @@
+# A1 – File Format Design
+See design.md for text and binary layouts, pseudocode, damaged-data strategy and RandomAccessFile complexity. This is a Part A design task; the brief asks for pseudocode and design evidence rather than a Java implementation.
