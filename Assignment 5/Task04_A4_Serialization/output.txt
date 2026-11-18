@@ -1,4 +1,1 @@
-Expected output:
-SIMATS Hostel | Arun | 9000000000 | password=null
-
-The object graph Hostel -> rooms -> residents is restored. The transient password and live connection are not restored.
+Expected Java demo output: SIMATS Hostel | Arun | 9000000000 | password=null. Transient fields are not restored.
