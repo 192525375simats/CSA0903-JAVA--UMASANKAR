@@ -1,0 +1,37 @@
+PSEUDOCODE (Task 3)
+
+ALGORITHM AllocateSlot
+INPUT : vehicleNo (string), slots[F][*] (jagged array, null = free)
+OUTPUT: pair (floor, slot) or NULL when the facility is full
+BEGIN
+    FOR floor <- 0 TO F-1 DO
+        FOR slot <- 0 TO length(slots[floor]) - 1 DO
+            IF slots[floor][slot] = NULL THEN
+                slots[floor][slot] <- vehicleNo
+                RETURN (floor, slot)            // stop searching at the first free slot
+            END IF
+        END FOR
+    END FOR
+    RETURN NULL                                  // every slot checked, none free
+END
+
+ALGORITHM ComputeFee
+INPUT : vehicleType, minutes, hasPass
+OUTPUT: fee (rupees)
+BEGIN
+    IF hasPass THEN RETURN 0
+    IF minutes <= 0 THEN RETURN 0                // zero-minute stay is free
+    SELECT vehicleType
+        CASE "BIKE": first <- 10 ; extra <- 5  ; dailyMax <- 50
+        CASE "CAR" : first <- 30 ; extra <- 20 ; dailyMax <- 150
+        CASE "EV"  : first <- 30 ; extra <- 20 ; dailyMax <- 150
+        DEFAULT    : RAISE error "unknown type"
+    END SELECT
+    hours <- (minutes + 59) DIV 60               // integer ceiling: every started hour
+    fee   <- first + (hours - 1) * extra
+    IF fee > dailyMax THEN fee <- dailyMax
+    RETURN fee
+END
+
+When no suitable slot is free: AllocateSlot returns NULL; the caller prints
+"Facility full", issues no ticket and does not change any state.

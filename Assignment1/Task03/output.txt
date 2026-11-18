@@ -1,0 +1,32 @@
+$ javac ParkingFacility.java Task03Extra.java
+$ java ParkingFacility
+[0, 0]
+[0, 1]
+[1, 0]
+null
+true false false
+[0, 1]
+
+$ java Task03Extra
+=== TASK 3 extra: fee slabs ===
+CAR    0 min -> Rs    0.0 | BIKE -> Rs   0.0
+CAR    1 min -> Rs   30.0 | BIKE -> Rs  10.0
+CAR   60 min -> Rs   30.0 | BIKE -> Rs  10.0
+CAR   61 min -> Rs   50.0 | BIKE -> Rs  15.0
+CAR  120 min -> Rs   50.0 | BIKE -> Rs  15.0
+CAR  130 min -> Rs   70.0 | BIKE -> Rs  20.0
+CAR  600 min -> Rs  150.0 | BIKE -> Rs  50.0
+CAR 1440 min -> Rs  150.0 | BIKE -> Rs  50.0
+Unknown type handled: Unknown vehicle type: TRUCK
+
+=== Alternative allocator gives the same answers ===
+[0, 0]
+[0, 1]
+[1, 0]
+null
+true false false
+[0, 1]
+
+200000 allocate+release on a nearly full 5x100 facility:
+  linear scan  : 38 ms   (allocate O(F*S), release O(1), extra space O(1))
+  count+stack  : 13 ms   (allocate O(F) worst case, release O(1), extra space O(F*S))
