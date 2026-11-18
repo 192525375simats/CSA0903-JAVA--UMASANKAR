@@ -1,0 +1,2 @@
+# A2 – Buffered I/O Design
+See design.md for the 50 MiB read-call prediction, buffered redesign, limitations, Files.readAllLines alternative and complexity comparison. The runnable benchmark is in Task06_B1_File_Store.
