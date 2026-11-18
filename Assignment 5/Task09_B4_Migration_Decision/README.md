@@ -1,0 +1,2 @@
+# B4 – Migration
+Run schema.sql. Compile with PassLoader.java from Task08_B3_JDBC_Batch as well as PassMigration.java, with MySQL Connector/J on the classpath. Run PassMigration passes.csv. It prints valid/rejected counts and database/driver metadata. Keep the source CSV format consistent with the five-column assignment format.
