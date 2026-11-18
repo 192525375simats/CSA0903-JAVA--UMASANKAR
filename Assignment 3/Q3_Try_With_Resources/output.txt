@@ -1,0 +1,9 @@
+Manual close version:
+Store 1: 1200
+Failed at missing-store.txt: missing-store.txt
+Store 3: 700
+Try-with-resources version:
+Store 1: 1200
+Failed at missing-store.txt: missing-store.txt
+Store 3: 700
+Both versions continue and close opened readers.
