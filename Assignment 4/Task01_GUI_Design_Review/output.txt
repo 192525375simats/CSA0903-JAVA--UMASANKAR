@@ -1,0 +1,9 @@
+Task 1 expected manual tests
+1. Register=192525375, amount=1250.00 -> Payment simulated successfully.
+2. Empty register -> Invalid input: Register number is required.
+3. Amount=abc -> Invalid input (number format).
+4. Amount=-10 -> Invalid input: Enter a positive amount with at most 2 decimals.
+5. Clear -> fields emptied and status changed.
+6. Receipt before payment -> No payment has been made.
+7. Receipt after valid payment -> DEMO RECEIPT with register number and amount.
+Note: payment is simulated; no real bank transaction or database insert is performed.
