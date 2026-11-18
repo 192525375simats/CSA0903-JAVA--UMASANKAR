@@ -1,0 +1,12 @@
+PassStore expected output:
+[P1003, 192311003, Divya, 7, 3800.0]
+null
+Route 12 count=1
+
+PassStoreTest expected output:
+Normal find: [P1, R1, Asha, 4, 2500.0]
+Missing ID: null
+Damaged P2: null
+Route 4 records: 2
+
+BufferedLineCounter prints elapsed milliseconds for 1, 10 and 50 MiB on the executing computer. Timing values vary by hardware, filesystem cache and Java version; record the actual run rather than copying sample numbers.
