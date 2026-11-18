@@ -1,0 +1,15 @@
+TEST 1 - valid withdrawal
+Account 192525375: Dispensed Rs. 1000.00
+ATM session closed.
+TEST 2 - letters
+Input error: enter numeric account and amount
+ATM session closed.
+TEST 3 - negative amount
+Transaction rejected: Withdrawal must be positive
+ATM session closed.
+TEST 4 - over balance
+Transaction rejected: Insufficient balance
+ATM session closed.
+TEST 5 - missing card reader
+Device error: Card-reader file is missing
+ATM session closed.
