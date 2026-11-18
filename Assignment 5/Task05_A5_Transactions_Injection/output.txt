@@ -1,11 +1,1 @@
-Wallet test plan:
-Initial balances: source=1000.00, destination=250.00.
-Transfer 500.00 -> source=500.00, destination=750.00 (total remains 1250.00).
-Transfer 900.00 -> debit affects zero rows; transaction rolled back; balances unchanged.
-Force destination update failure -> source debit rolled back.
-
-SQL injection illustration:
-Unsafe id input: ' OR '1'='1' -- 
-The unsafe concatenated predicate can become true without a valid password.
-PreparedStatement binds the same string as a literal ID and rejects it as an unknown account.
-SafeLogin uses a demo password verifier placeholder; replace it with Argon2id/bcrypt in production.
+Transfer ₹500: source 1000 -> 500; destination 250 -> 750. Total remains ₹1250. A failed debit/credit transaction must rollback both changes. Injection string: ' OR '1'='1' -- .
