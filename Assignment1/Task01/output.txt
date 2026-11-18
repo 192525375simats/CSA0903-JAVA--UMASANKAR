@@ -1,0 +1,21 @@
+$ javac Task01.java
+$ java Task01
+=== TASK 1: Objects and business rules ===
+Ticket 1001 -> floor 0 slot 0
+Ticket 1002 -> floor 0 slot 1
+R3 duplicate entry:
+  REJECT TN01AB1111 (R3: already parked)
+Ticket 1003 -> floor 1 slot 0
+Full facility:
+  REJECT TN04GH4444 (facility full)
+R4 release invalid slot (5,0): false
+Release (0,1): true
+Release (0,1) again: false
+R2 ticket numbers keep increasing: 1001,1002,1003,1004
+
+=== Alternative: parallel arrays vs objects (search by regNo) ===
+Parallel arrays found index 199999 in 626 us (O(n))
+Object array   found TN199999 in 676 us (O(n))
+Both searches are O(n). Adding a new attribute: arrays need a NEW parallel array and every
+insert/remove must update all arrays; objects need only one new field in Vehicle.
+Space per vehicle: arrays = 3 refs (+ the Strings) ; object = 1 ref + header + 3 fields (both O(1)).
