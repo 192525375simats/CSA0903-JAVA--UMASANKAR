@@ -1,0 +1,2 @@
+# B3 – JDBC Batch
+Run schema.sql; compile PassLoader.java PassLoaderBenchmark.java BatchRollbackTest.java with MySQL Connector/J on the classpath. Run PassLoaderBenchmark for 1k/10k/100k rows, and BatchRollbackTest for rollback. Timings depend on your environment.
