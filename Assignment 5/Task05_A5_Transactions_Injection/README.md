@@ -1,0 +1,2 @@
+# A5 – Transactions and Injection
+WalletTransfer.java demonstrates atomic JDBC updates. SafeLogin.java demonstrates parameter binding; PasswordDemo is an explicitly marked placeholder and must be replaced by a vetted Argon2id/bcrypt verifier before production use. Run schema.sql in the local assignment database.
