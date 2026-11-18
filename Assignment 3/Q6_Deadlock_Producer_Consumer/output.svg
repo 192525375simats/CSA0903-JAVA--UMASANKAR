@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="140" viewBox="0 0 1000 140">
+<rect width="1000" height="140" rx="14" fill="#111827"/>
+<rect width="1000" height="42" rx="14" fill="#263244"/>
+<circle cx="24" cy="21" r="6" fill="#f87171"/><circle cx="46" cy="21" r="6" fill="#fbbf24"/><circle cx="68" cy="21" r="6" fill="#34d399"/>
+<text x="92" y="27" fill="#e5e7eb" font-family="Arial,sans-serif" font-size="15">Java program — console output</text>
+<text x="28" y="78" fill="#d1fae5" font-family="Consolas,monospace" font-size="17">Wallet total: 2000</text>
+<text x="28" y="103" fill="#d1fae5" font-family="Consolas,monospace" font-size="17">Sum of tokens collected: 210 (expected 210)</text>
+</svg>
