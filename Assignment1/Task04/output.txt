@@ -1,0 +1,24 @@
+$ javac Task04.java
+$ java Task04
+=== TASK 4: Constructors ===
+default   : Ticket#0[UNKNOWN F-1-S-1 @0]
+overloaded: Ticket#1001[TN01AB1111 F0-S0 @600]
+full      : Ticket#1002[TN02CD2222 F0-S1 @605 PASS]
+copy      : Ticket#1001[TN01AB1111 F0-S0 @600]
+t1 == dup (same object?)   : false
+fields identical (toString): true
+
+References: 't3 = t1' copies the REFERENCE (stack), not the object (heap):
+t3 == t1 : true   (one heap object, two reference variables)
+
+Setter approach leaves an INVALID object between calls:
+  after 'new' only: regNo=null ticketNo=0 (not valid yet)
+  after setters   : regNo=TN01AB1111 ticketNo=1001
+
+Static factory rejects invalid input:
+  rejected: regNo required
+  accepted: TN01AB1111
+
+Create n=5000000 tickets (ms): constructor=190 setters=187 factory=191
+All three are O(n) time and O(n) space (each ticket is O(1)); setters add n*5 extra method calls,
+the factory adds one validation check. Only constructor/factory guarantee a valid object at creation.
