@@ -1,0 +1,17 @@
+$ javac Task09.java
+$ java Task09
+=== TASK 9: Abstraction ===
+fee(130)            = Rs 90.0
+amountDue(130)      = Rs 90.0   (Payable)
+chargingFee(10)     = Rs 120.0   (Chargeable)
+default method      : 10 kWh -> Rs 120.0
+static method       : isValidKwh(150) = false, isValidKwh(40) = true
+ev is Vehicle/Payable/Chargeable: true/true/true
+
+-- Alternative design --
+CarI fee(130) = 90.0  (works via default method)
+Cannot be expressed any more: shared constructor, shared private regNo field (state),
+and an EV that is BOTH a Car and Chargeable (class can extend only one class).
+
+30000000 calls (ms): abstract class=25 interface default=23 [5.4E9]  both O(1); interface call needs an itable lookup (marginally slower, negligible).
+Space per object: identical (object header + regNo reference).
