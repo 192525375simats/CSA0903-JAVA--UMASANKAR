@@ -1,0 +1,7 @@
+DAO verification plan (run with MySQL and Connector/J)
+1. insert Student(0,"192525375","Umasankar","student@example.test") -> generated id returned.
+2. findById(generated id) -> Optional containing mapped Student.
+3. findAll() -> list of mapped rows.
+4. update(...) -> true when one row changed.
+5. delete(id) -> true when one row removed.
+The repository class centralises SQL and closes statements/result sets with try-with-resources.
