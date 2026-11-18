@@ -1,0 +1,5 @@
+Test 1: Click at (80,90) -> Clicks: 1 and dot appears.
+Test 2: Click at (120,140) -> Clicks: 2 and second dot appears.
+Test 3: Minimise and restore -> both dots are redrawn; label remains Clicks: 2.
+Compile-time defect test: @Override on mouseclicked(MouseEvent e) reports that the method does not override or implement a method from a supertype.
+Run on a graphical desktop to capture before/after restore screenshots.
