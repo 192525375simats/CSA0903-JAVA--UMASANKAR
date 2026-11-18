@@ -1,0 +1,5 @@
+Files processed: 10
+Successful: 8
+Failed: 2
+Failure: student9.txt - NumberFormatException
+Failure: student10.txt - NoSuchFileException
