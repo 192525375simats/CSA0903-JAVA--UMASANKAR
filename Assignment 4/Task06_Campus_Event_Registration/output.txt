@@ -1,0 +1,7 @@
+Task 6 test cases (requires local MySQL and Connector/J)
+1. Valid ID/name/event -> Registration successful.
+2. Blank ID or name -> validation message.
+3. Repeat same student/event -> duplicate rejected by UNIQUE constraint.
+4. Reload -> at most 50 rows loaded asynchronously.
+5. Export CSV -> displayed page saved.
+No database credentials are included in the repository.
