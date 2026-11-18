@@ -1,0 +1,7 @@
+Manual GUI test cases
+1. Choose Cardiology -> doctor list shows Dr. Anand and Dr. Meera.
+2. Change to Dermatology -> list refreshes to Dr. Kavya and Dr. Joseph.
+3. Empty Patient ID and Book -> error displayed.
+4. Valid patient ID P1007, Neurology, Dr. Priya, 10:30 -> confirmation displayed.
+5. Click window close during booking -> confirmation dialog appears.
+The booking uses a short local demonstration timer, not a hospital database.
