@@ -1,0 +1,2 @@
+# B1 – File Store
+Compile: javac PassStore.java PassStoreTest.java BufferedLineCounter.java. Run: java PassStore, java PassStoreTest, java BufferedLineCounter. The last program reports machine-specific timings for 1, 10 and 50 MiB.
