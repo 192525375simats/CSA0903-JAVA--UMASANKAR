@@ -1,0 +1,2 @@
+# B2 – Adversarial Login
+Run schema.sql first, then compile with MySQL Connector/J: javac -cp .:mysql-connector-j.jar AdversarialLogin.java. On Windows use ; instead of : in the classpath. Set DB_URL, DB_USER and DB_PASSWORD. The test table is disposable and uses plaintext only for a classroom injection demonstration.
