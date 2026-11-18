@@ -1,0 +1,5 @@
+Resize verification checklist
+600x400  -> centre results area visible; controls remain in fixed rows.
+850x550  -> centre results area expands vertically and horizontally.
+1100x700 -> centre results area expands further; top and bottom controls retain preferred sizes.
+These are expected observations; capture actual desktop screenshots at all three sizes before final submission.
