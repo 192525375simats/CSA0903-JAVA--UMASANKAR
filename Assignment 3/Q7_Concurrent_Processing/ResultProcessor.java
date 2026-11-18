@@ -11,7 +11,7 @@ public class ResultProcessor {
             if (score < 0 || score > 100) throw new IllegalArgumentException("Score out of range");
             return new Result(file.getFileName().toString(), true, "Result=" + score);
         } catch (IOException e) { return new Result(file.getFileName().toString(), false, e.getClass().getSimpleName()); }
-          catch (NumberFormatException | IllegalArgumentException e) { return new Result(file.getFileName().toString(), false, e.getClass().getSimpleName()); }
+          catch (IllegalArgumentException e) { return new Result(file.getFileName().toString(), false, e.getClass().getSimpleName()); }
     }
     public static void main(String[] args) throws Exception {
         Path dir = Path.of("scores"); Files.createDirectories(dir);
