@@ -1,0 +1,26 @@
+=== Data set 1 (ties at every level) ===
+hand-worked expected: [Eagles(9,6), Falcons(9,6), Bisons(9,4), Panthers(9,4), Lions(6,3), Anacondas(6,1), Cobras(6,1), Zebras(3,0)]
+GOOD comparator     : [Eagles(9,6), Falcons(9,6), Bisons(9,4), Panthers(9,4), Lions(6,3), Anacondas(6,1), Cobras(6,1), Zebras(3,0)]
+matches hand result : true
+GOOD property check : antisymmetry violations=0, transitivity violations=0, equality-consistency violations=0
+same result for reversed input? true
+Leaderboard keeps insertion order of its stored data (ranking() sorts a copy): first stored = Panthers(9,4)
+
+=== Data set 2 (designed to break faulty comparators) ===
+GOOD            : [Max, Mid3, Mid2, Normal, Mid, Low, Penalised]  | antisymmetry violations=0, transitivity violations=0, equality-consistency violations=0
+BAD_SUBTRACT    : [Max, Mid3, Normal, Mid2, Mid, Low, Penalised]  | antisymmetry violations=0, transitivity violations=15, equality-consistency violations=0
+BAD_TOLERANT    : antisymmetry violations=0, transitivity violations=0, equality-consistency violations=16
+BAD_NO_TIEBREAK on d1 input order : [Eagles(9,6), Falcons(9,6), Panthers(9,4), Bisons(9,4), Lions(6,3), Cobras(6,1), Anacondas(6,1), Zebras(3,0)]
+BAD_NO_TIEBREAK on d1 reversed    : [Falcons(9,6), Eagles(9,6), Bisons(9,4), Panthers(9,4), Lions(6,3), Anacondas(6,1), Cobras(6,1), Zebras(3,0)]
+  -> same output regardless of input order? false  (GOOD: true)
+BAD_TOLERANT sort of 5000 random teams: IllegalArgumentException: Comparison method violates its general contract!
+
+Reuse for players: [Player[name=Ben, goals=9], Player[name=Ali, goals=7], Player[name=Zoya, goals=7]]
+Comparator<Object> used for Team (? super T): [Anacondas(6,1), Bisons(9,4)]
+max by natural order via bounded generic: 9, pear
+
+=== One comparator chain vs three stable sorts (name, then goalDiff, then points) ===
+n teams    chain ms (1 sort)       3 sorts ms identical output?
+10000                   4.1              9.2 true
+100000                 48.7             68.5 true
+500000                338.1            451.6 true
